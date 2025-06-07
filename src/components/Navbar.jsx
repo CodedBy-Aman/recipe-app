@@ -83,7 +83,7 @@ const Navbar = () => {
                   ${isActive ? "text-orange-600 border-b-2 border-orange-600" : "text-gray-600 hover:text-orange-600"}`
                 }
               >
-                Recipes
+               My Recipes
               </NavLink>
               <NavLink 
                 to="/create-recipes" 

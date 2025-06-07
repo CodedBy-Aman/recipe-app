@@ -13,6 +13,7 @@ const DefaultRecipeRender = () => {
     : RecipeData;
 
   const handleRecipeClick = (recipeId) => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     navigate(`/default-recipe/${recipeId}`);
   };
 
@@ -31,16 +32,18 @@ const DefaultRecipeRender = () => {
           return (
             <div
               key={recipe.id}
-              className={`bg-white rounded-lg shadow-md overflow-hidden cursor-pointer transform transition-all duration-300 hover:scale-105 ${
+              className={`group bg-white rounded-lg shadow-md overflow-hidden cursor-pointer transform transition-all duration-300 hover:scale-105 ${
                 isExpanded ? 'max-h-full' : 'max-h-[60vh]'
               }`}
             >
               <div onClick={() => handleRecipeClick(recipe.id)}>
-                <img
-                  src={recipe.image}
-                  alt={recipe.title}
-                  className="w-full h-48 object-cover"
-                />
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={recipe.image}
+                    alt={recipe.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
                 <div className="p-4">
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">{recipe.title}</h3>
                   <p className="text-gray-600 text-sm line-clamp-2">{recipe.description}</p>
