@@ -1,6 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const About = () => {
+  const navigate = useNavigate();
+
+
   return (
     <div className="py-12 px-4 max-w-7xl mx-auto">
       {/* Hero Section */}
@@ -151,8 +155,11 @@ const About = () => {
         <p className="text-xl mb-8 max-w-2xl mx-auto">
           Start sharing your recipes, discovering new dishes, and connecting with food lovers from around the world.
         </p>
-        <button className="bg-white text-orange-600 px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:bg-orange-50 hover:scale-105 active:scale-95">
-          Get Started Now
+        <button 
+          onClick={() => navigate('/create-recipes')}
+          className="bg-white text-orange-600 px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:bg-orange-50 hover:scale-105 active:scale-95"
+        >
+          Create Your Recipe
         </button>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import nanoId from "nano-id";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { RecipeContext } from "../context/RecipeContext";
 import { useNavigate } from "react-router-dom";
@@ -12,6 +12,10 @@ const CreateRecipe = () => {
 
   const navigate = useNavigate();
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const ingredientSubmitHandler = () => {
     if (newIngredient.trim() !== "") {
