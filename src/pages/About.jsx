@@ -79,6 +79,82 @@ const About = () => {
           cooks and experienced chefs to explore new flavors, techniques, and cuisines.
         </p>
       </div>
+
+      {/* Statistics Section */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 my-16">
+        <div className="text-center">
+          <h3 className="text-4xl font-bold text-orange-600 mb-2">10K+</h3>
+          <p className="text-gray-600">Active Users</p>
+        </div>
+        <div className="text-center">
+          <h3 className="text-4xl font-bold text-orange-600 mb-2">5K+</h3>
+          <p className="text-gray-600">Recipes Shared</p>
+        </div>
+        <div className="text-center">
+          <h3 className="text-4xl font-bold text-orange-600 mb-2">50+</h3>
+          <p className="text-gray-600">Countries</p>
+        </div>
+        <div className="text-center">
+          <h3 className="text-4xl font-bold text-orange-600 mb-2">4.8</h3>
+          <p className="text-gray-600">User Rating</p>
+        </div>
+      </div>
+
+      {/* Testimonials Section */}
+      <div className="mb-16">
+        <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">What Our Users Say</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-white p-6 rounded-2xl shadow-lg">
+            <div className="flex items-center mb-4">
+              <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+                <span className="text-orange-600 font-semibold">JD</span>
+              </div>
+              <div className="ml-4">
+                <h4 className="font-semibold text-gray-800">John Doe</h4>
+                <p className="text-gray-600 text-sm">Home Chef</p>
+              </div>
+            </div>
+            <p className="text-gray-600">"RecipeHub has transformed my cooking journey. The community is amazing and the recipes are always spot on!"</p>
+          </div>
+
+          <div className="bg-white p-6 rounded-2xl shadow-lg">
+            <div className="flex items-center mb-4">
+              <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+                <span className="text-orange-600 font-semibold">MS</span>
+              </div>
+              <div className="ml-4">
+                <h4 className="font-semibold text-gray-800">Maria Smith</h4>
+                <p className="text-gray-600 text-sm">Professional Chef</p>
+              </div>
+            </div>
+            <p className="text-gray-600">"As a professional chef, I love sharing my recipes here. The platform is intuitive and the feedback is invaluable."</p>
+          </div>
+
+          <div className="bg-white p-6 rounded-2xl shadow-lg">
+            <div className="flex items-center mb-4">
+              <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+                <span className="text-orange-600 font-semibold">RJ</span>
+              </div>
+              <div className="ml-4">
+                <h4 className="font-semibold text-gray-800">Robert Johnson</h4>
+                <p className="text-gray-600 text-sm">Food Blogger</p>
+              </div>
+            </div>
+            <p className="text-gray-600">"The variety of recipes and the ease of sharing make RecipeHub my go-to platform for culinary inspiration."</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Call to Action Section */}
+      <div className="bg-orange-600 rounded-2xl p-12 text-center text-white">
+        <h2 className="text-3xl font-bold mb-4">Join Our Culinary Community</h2>
+        <p className="text-xl mb-8 max-w-2xl mx-auto">
+          Start sharing your recipes, discovering new dishes, and connecting with food lovers from around the world.
+        </p>
+        <button className="bg-white text-orange-600 px-8 py-3 rounded-full font-semibold hover:bg-orange-50 transition-colors">
+          Get Started Now
+        </button>
+      </div>
     </div>
   );
 };
