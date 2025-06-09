@@ -15,9 +15,9 @@ const About = () => {
 
       {/* Features Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-        <div className="bg-white p-6 rounded-2xl shadow-lg">
-          <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4">
-            <svg className="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="bg-white p-6 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 active:scale-95">
+          <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4 transition-colors duration-300 group-hover:bg-orange-200">
+            <svg className="w-8 h-8 text-orange-600 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
             </svg>
           </div>
@@ -25,9 +25,9 @@ const About = () => {
           <p className="text-gray-600">Share your culinary creations with detailed ingredients and step-by-step instructions.</p>
         </div>
 
-        <div className="bg-white p-6 rounded-2xl shadow-lg">
-          <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4">
-            <svg className="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="bg-white p-6 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 active:scale-95">
+          <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4 transition-colors duration-300 group-hover:bg-orange-200">
+            <svg className="w-8 h-8 text-orange-600 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </div>
@@ -35,9 +35,9 @@ const About = () => {
           <p className="text-gray-600">Explore a diverse collection of recipes from breakfast to dinner and everything in between.</p>
         </div>
 
-        <div className="bg-white p-6 rounded-2xl shadow-lg">
-          <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4">
-            <svg className="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="bg-white p-6 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 active:scale-95">
+          <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4 transition-colors duration-300 group-hover:bg-orange-200">
+            <svg className="w-8 h-8 text-orange-600 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
           </div>
@@ -48,30 +48,30 @@ const About = () => {
 
       {/* Image Gallery */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-        <div className="relative h-96 rounded-2xl overflow-hidden">
+        <div className="relative h-96 rounded-2xl overflow-hidden group transition-transform duration-300 hover:scale-[1.02]">
           <img
             src="https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
             alt="Cooking"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
-            <p className="text-white text-lg font-medium">Professional Chefs</p>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6 transition-opacity duration-300 group-hover:opacity-90">
+            <p className="text-white text-lg font-medium transform transition-transform duration-300 group-hover:translate-y-[-4px]">Professional Chefs</p>
           </div>
         </div>
-        <div className="relative h-96 rounded-2xl overflow-hidden">
+        <div className="relative h-96 rounded-2xl overflow-hidden group transition-transform duration-300 hover:scale-[1.02]">
           <img
             src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
             alt="Food"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
-            <p className="text-white text-lg font-medium">Delicious Recipes</p>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6 transition-opacity duration-300 group-hover:opacity-90">
+            <p className="text-white text-lg font-medium transform transition-transform duration-300 group-hover:translate-y-[-4px]">Delicious Recipes</p>
           </div>
         </div>
       </div>
 
       {/* Mission Statement */}
-      <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
+      <div className="bg-white p-8 rounded-2xl shadow-lg text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
         <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Mission</h2>
         <p className="text-gray-600 max-w-3xl mx-auto">
           At RecipeHub, we believe that cooking is more than just preparing food—it's about creating memories, 
@@ -82,20 +82,20 @@ const About = () => {
 
       {/* Statistics Section */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 my-16">
-        <div className="text-center">
-          <h3 className="text-4xl font-bold text-orange-600 mb-2">10K+</h3>
+        <div className="text-center transition-all duration-300 hover:scale-105">
+          <h3 className="text-4xl font-bold text-orange-600 mb-2 transition-colors duration-300 hover:text-orange-700">10K+</h3>
           <p className="text-gray-600">Active Users</p>
         </div>
-        <div className="text-center">
-          <h3 className="text-4xl font-bold text-orange-600 mb-2">5K+</h3>
+        <div className="text-center transition-all duration-300 hover:scale-105">
+          <h3 className="text-4xl font-bold text-orange-600 mb-2 transition-colors duration-300 hover:text-orange-700">5K+</h3>
           <p className="text-gray-600">Recipes Shared</p>
         </div>
-        <div className="text-center">
-          <h3 className="text-4xl font-bold text-orange-600 mb-2">50+</h3>
+        <div className="text-center transition-all duration-300 hover:scale-105">
+          <h3 className="text-4xl font-bold text-orange-600 mb-2 transition-colors duration-300 hover:text-orange-700">50+</h3>
           <p className="text-gray-600">Countries</p>
         </div>
-        <div className="text-center">
-          <h3 className="text-4xl font-bold text-orange-600 mb-2">4.8</h3>
+        <div className="text-center transition-all duration-300 hover:scale-105">
+          <h3 className="text-4xl font-bold text-orange-600 mb-2 transition-colors duration-300 hover:text-orange-700">4.8</h3>
           <p className="text-gray-600">User Rating</p>
         </div>
       </div>
@@ -104,9 +104,9 @@ const About = () => {
       <div className="mb-16">
         <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">What Our Users Say</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white p-6 rounded-2xl shadow-lg">
+          <div className="bg-white p-6 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 active:scale-95">
             <div className="flex items-center mb-4">
-              <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center transition-colors duration-300 group-hover:bg-orange-200">
                 <span className="text-orange-600 font-semibold">JD</span>
               </div>
               <div className="ml-4">
@@ -117,9 +117,9 @@ const About = () => {
             <p className="text-gray-600">"RecipeHub has transformed my cooking journey. The community is amazing and the recipes are always spot on!"</p>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl shadow-lg">
+          <div className="bg-white p-6 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 active:scale-95">
             <div className="flex items-center mb-4">
-              <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center transition-colors duration-300 group-hover:bg-orange-200">
                 <span className="text-orange-600 font-semibold">MS</span>
               </div>
               <div className="ml-4">
@@ -130,9 +130,9 @@ const About = () => {
             <p className="text-gray-600">"As a professional chef, I love sharing my recipes here. The platform is intuitive and the feedback is invaluable."</p>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl shadow-lg">
+          <div className="bg-white p-6 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 active:scale-95">
             <div className="flex items-center mb-4">
-              <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center transition-colors duration-300 group-hover:bg-orange-200">
                 <span className="text-orange-600 font-semibold">RJ</span>
               </div>
               <div className="ml-4">
@@ -146,12 +146,12 @@ const About = () => {
       </div>
 
       {/* Call to Action Section */}
-      <div className="bg-orange-600 rounded-2xl p-12 text-center text-white">
+      <div className="bg-orange-600 rounded-2xl p-12 text-center text-white transition-all duration-300 hover:bg-orange-700">
         <h2 className="text-3xl font-bold mb-4">Join Our Culinary Community</h2>
         <p className="text-xl mb-8 max-w-2xl mx-auto">
           Start sharing your recipes, discovering new dishes, and connecting with food lovers from around the world.
         </p>
-        <button className="bg-white text-orange-600 px-8 py-3 rounded-full font-semibold hover:bg-orange-50 transition-colors">
+        <button className="bg-white text-orange-600 px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:bg-orange-50 hover:scale-105 active:scale-95">
           Get Started Now
         </button>
       </div>
