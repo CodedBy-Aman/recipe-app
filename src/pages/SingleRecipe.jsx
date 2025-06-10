@@ -53,6 +53,28 @@ const SingleRecipe = () => {
     }
   }, [isEditing]);
 
+//fav icon
+  const [isFav, setIsFav] = useState(false);
+
+  useEffect(() => {
+    const favs = JSON.parse(localStorage.getItem("favorites")) || [];
+    const exists = favs.some(fav => fav.id === recipe.id);
+    setIsFav(exists);
+  }, [recipe.id]);
+
+const favHandler= () =>{
+   const favs = JSON.parse(localStorage.getItem("favorites")) || [];
+    favs.push(recipe);
+    localStorage.setItem("favorites", JSON.stringify(favs));
+    setIsFav(true);
+}
+const unfavHandler= () =>{
+  const favs = JSON.parse(localStorage.getItem("favorites")) || [];
+    const updatedFavs = favs.filter(fav => fav.id !== recipe.id);
+    localStorage.setItem("favorites", JSON.stringify(updatedFavs));
+    setIsFav(false);
+}
+
   return (
     <>
     <div className="mt-15">
@@ -69,8 +91,17 @@ const SingleRecipe = () => {
       {/* Left Side - Recipe Display */}
       <div className=" relative bg-white shadow p-6 rounded-lg w-full text-center">
 
-        <i class=" absolute right-[5%] text-4xl text-red-500 ri-heart-line"></i>
-        <i class="absolute right-[5%] text-4xl text-red-500 ri-heart-fill"></i>
+        {!isFav ? (
+        <i
+          onClick={favHandler}
+          className="absolute right-[5%] text-4xl text-red-500 ri-heart-line"
+        ></i>
+      ) : (
+        <i
+          onClick={unfavHandler}
+          className="absolute right-[5%] text-4xl text-red-500 ri-heart-fill"
+        ></i>
+      )}
         <img
           src={selectedRecipe.image}
           alt={selectedRecipe.title}
