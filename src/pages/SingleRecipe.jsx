@@ -67,7 +67,10 @@ const SingleRecipe = () => {
       }`}
     >
       {/* Left Side - Recipe Display */}
-      <div className="bg-white shadow p-6 rounded-lg w-full text-center">
+      <div className=" relative bg-white shadow p-6 rounded-lg w-full text-center">
+
+        <i class=" absolute right-[5%] text-4xl text-red-500 ri-heart-line"></i>
+        <i class="absolute right-[5%] text-4xl text-red-500 ri-heart-fill"></i>
         <img
           src={selectedRecipe.image}
           alt={selectedRecipe.title}
