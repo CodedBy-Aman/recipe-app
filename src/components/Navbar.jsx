@@ -86,6 +86,16 @@ const Navbar = () => {
                My Recipes
               </NavLink>
               <NavLink 
+                to="/favourites" 
+                onClick={handleLinkClick}
+                className={({ isActive }) => 
+                  `text-lg font-medium transition-all duration-300
+                  ${isActive ? "text-orange-600 border-b-2 border-orange-600" : "text-gray-600 hover:text-orange-600"}`
+                }
+              >
+               Favourites
+              </NavLink>
+              <NavLink 
                 to="/create-recipes" 
                 onClick={handleLinkClick}
                 className={({ isActive }) => 
