@@ -14,12 +14,16 @@ const FavoriteButton = ({ recipe }) => {
   };
 
   return (
-    <i
+    <div 
       onClick={handleClick}
-      className={`absolute top-4 right-4 text-3xl text-red-500 cursor-pointer hover:scale-110 transition-transform ${
-        isFavorite(recipe.id) ? 'ri-heart-fill' : 'ri-heart-line'
-      }`}
-    ></i>
+      className="absolute top-4 right-4 bg-white/80 backdrop-blur-sm w-10 h-10 flex items-center justify-center rounded-full shadow-md cursor-pointer"
+    >
+      <i
+        className={`text-2xl transition-all duration-200 ${
+          isFavorite(recipe.id) ? 'ri-heart-fill text-red-500 scale-125' : 'ri-heart-line text-red-500 scale-105'
+        }`}
+      ></i>
+    </div>
   );
 };
 
