@@ -131,7 +131,7 @@ const SingleRecipe = () => {
 
           <div className="w-full flex justify-center  gap-4 mt-6">
             <button
-              onClick={() => navigate("/recipes")}
+              onClick={() => navigate(-1)}
               className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
             >
               ← Back

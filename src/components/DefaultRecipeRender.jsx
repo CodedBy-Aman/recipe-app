@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import RecipeData from './DefaultRecipeData';
 import CategoriesSection from './CategoriesSection';
+import FavoriteButton from './FavoriteButton';
 
 const DefaultRecipeRender = () => {
   const navigate = useNavigate();
@@ -43,6 +44,7 @@ const DefaultRecipeRender = () => {
                     alt={recipe.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
+                  <FavoriteButton recipe={recipe} />
                 </div>
                 <div className="p-4">
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">{recipe.title}</h3>

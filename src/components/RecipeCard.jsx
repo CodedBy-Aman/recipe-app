@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { RecipeContext } from "../context/RecipeContext";
 import { Link, useNavigate } from "react-router-dom";
+import FavoriteButton from "./FavoriteButton";
 
 const RecipeCard = () => {
   const { recipe } = useContext(RecipeContext);
@@ -42,12 +43,12 @@ const RecipeCard = () => {
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-4">
-        {recipe.map((item, index) => {
-          const isExpanded = expandedCard === index;
+        {recipe.map((item) => {
+          const isExpanded = expandedCard === item.id;
 
           return (
             <div
-              key={index}
+              key={item.id}
               className={`group bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer transform transition-all duration-500 hover:scale-[1.02] ${
                 isExpanded ? "max-h-full" : "max-h-[400px]"
               }`}
@@ -68,6 +69,7 @@ const RecipeCard = () => {
                       {item.category}
                     </span>
                   </div>
+                  <FavoriteButton recipe={item} />
                 </div>
               </div>
               <div className="p-6">
@@ -76,7 +78,7 @@ const RecipeCard = () => {
                     By {item.chef || "Unknown Chef"}
                   </span>
                   <button
-                    onClick={() => toggleCard(index)}
+                    onClick={() => toggleCard(item.id)}
                     className={`inline-block px-4 py-2 text-sm font-medium rounded-full transition-all duration-300
                     ${
                       isExpanded

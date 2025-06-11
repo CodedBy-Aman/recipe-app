@@ -1,23 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useContext } from "react";
+import { FavoritesContext } from "../context/FavoritesContext";
+import RecipeData from './DefaultRecipeData';
 
 const FavRecipe = () => {
-  const [favRecipes, setFavRecipes] = useState([]);
   const [expandedCard, setExpandedCard] = useState(null);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const storedFavs = JSON.parse(localStorage.getItem("favorites")) || [];
-    console.log("Stored favorites:", storedFavs);
-    setFavRecipes(storedFavs);
-  }, []);
-
-  // Listen for changes in localStorage
-  useEffect(() => {
-      const storedFavs = JSON.parse(localStorage.getItem("favorites")) || [];
-      console.log("Favorites updated:", storedFavs);
-      setFavRecipes(storedFavs);
-  }, []);
+  const { favorites } = useContext(FavoritesContext);
 
   const toggleCard = (id) => {
     setExpandedCard(expandedCard === id ? null : id);
@@ -26,18 +15,26 @@ const FavRecipe = () => {
   const handleRecipeClick = (e, recipeId) => {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: "smooth" });
-    navigate(`/recipes/${recipeId}`);
+    
+    // Check if it's a default recipe
+    const isDefaultRecipe = RecipeData.some(recipe => recipe.id === recipeId);
+    
+    // Navigate to the appropriate route
+    if (isDefaultRecipe) {
+      navigate(`/default-recipe/${recipeId}`);
+    } else {
+      navigate(`/recipes/${recipeId}`);
+    }
   };
 
-
-  return favRecipes.length !== 0 ? (
+  return favorites.length !== 0 ? (
     <div className="py-8">
       <h2 className="text-4xl font-bold mb-12 text-center text-gray-800">
         Favorite Recipes
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-4">
-        {favRecipes.map((item) => {
+        {favorites.map((item) => {
           const isExpanded = expandedCard === item.id;
           
           return (
