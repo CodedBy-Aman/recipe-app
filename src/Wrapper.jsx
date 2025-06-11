@@ -1,4 +1,5 @@
 import { RecipeContext } from "./context/RecipeContext"
+import { FavoritesProvider } from "./context/FavoritesContext"
 import { useState, useEffect } from "react"
 
 const Wrapper = (props) => {
@@ -14,11 +15,11 @@ const Wrapper = (props) => {
   }, [recipe]);
 
   return (
-    
-        <RecipeContext.Provider value={{recipe, setRecipe}}>
-            {props.children}
-        </RecipeContext.Provider>
-    
+    <FavoritesProvider>
+      <RecipeContext.Provider value={{recipe, setRecipe}}>
+        {props.children}
+      </RecipeContext.Provider>
+    </FavoritesProvider>
   )
 }
 
