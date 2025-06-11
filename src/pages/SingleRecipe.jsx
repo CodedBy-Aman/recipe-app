@@ -57,18 +57,18 @@ const SingleRecipe = () => {
   const [favs,setFavs] = useState(JSON.parse(localStorage.getItem("favorites")) || [])
 
   useEffect(() =>{
-localStorage.setItem("favorites", JSON.stringify(favs));
+    localStorage.setItem("favorites", JSON.stringify(favs));
   }, [favs])
 
   const favHandler = () => {
-    if(!favs.find((f) => f.id == recipe.id)){
-   setFavs([...favs, recipe])
-    };
- 
+    if(!favs.find((f) => f.id === selectedRecipe.id)){
+      setFavs([...favs, selectedRecipe]);
+    }
   };
+
   const unfavHandler = () => {
-     const updatedFavs = favs.filter((f) => f.id !== recipe.id);
-     setFavs(updatedFavs);
+    const updatedFavs = favs.filter((f) => f.id !== selectedRecipe.id);
+    setFavs(updatedFavs);
   };
 
   return (
