@@ -86,14 +86,13 @@ const SingleRecipe = () => {
       >
         {/* Left Side - Recipe Display */}
         <div className=" relative bg-white shadow p-6 rounded-lg w-full text-center">
-          {(favs.find((f) => f.id == recipe.id)) ? (
+          {favs.find((f) => f.id === selectedRecipe.id) ? (
             <i
               onClick={unfavHandler}
               className="absolute right-[5%] text-4xl text-red-500 ri-heart-fill"
             ></i>
-           
           ) : (
-             <i
+            <i
               onClick={favHandler}
               className="absolute right-[5%] text-4xl text-red-500 ri-heart-line"
             ></i>
