@@ -54,14 +54,14 @@ const SingleRecipe = () => {
   }, [isEditing]);
 
   //fav icon
-  const [favs,setFavs] = useState(JSON.parse(localStorage.getItem("favorites")) || [])
+  const [favs, setFavs] = useState(JSON.parse(localStorage.getItem("favorites")) || []);
 
-  useEffect(() =>{
+  useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favs));
-  }, [favs])
+  }, [favs]);
 
   const favHandler = () => {
-    if(!favs.find((f) => f.id === selectedRecipe.id)){
+    if (!favs.find((f) => f.id === selectedRecipe.id)) {
       setFavs([...favs, selectedRecipe]);
     }
   };
