@@ -2,9 +2,11 @@ import { useContext, useState, useRef, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { RecipeContext } from "../context/RecipeContext";
 import { toast } from "react-toastify";
+import { FavoritesContext } from "../context/FavoritesContext";
 
 const SingleRecipe = () => {
   const { recipe, setRecipe } = useContext(RecipeContext);
+    const { favorites } = useContext(FavoritesContext);
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -14,18 +16,23 @@ const SingleRecipe = () => {
   const formRef = useRef(null);
 
   const [formData, setFormData] = useState({
-    title: selectedRecipe.title,
-    image: selectedRecipe.image,
-    category: selectedRecipe.category,
-    chef: selectedRecipe.chef,
-    ingredients: selectedRecipe.ingredients.join(", "),
-    instructions: selectedRecipe.instructions,
+    title: selectedRecipe?.title,
+    image: selectedRecipe?.image,
+    category: selectedRecipe?.category,
+    chef: selectedRecipe?.chef,
+    ingredients: selectedRecipe?.ingredients.join(", "),
+    instructions: selectedRecipe?.instructions,
   });
 
   const deleteHandler = () => {
     const updated = recipe.filter((r) => r.id !== id);
     setRecipe(updated);
-    navigate("/recipes");
+    
+    // Update favorites in localStorage
+    const updatedFavs = favorites.filter((f) => f.id !== selectedRecipe.id);
+    localStorage.setItem("favorites", JSON.stringify(updatedFavs));
+    
+    navigate(-1);
     toast.success("Recipe deleted!");
   };
 
@@ -86,7 +93,7 @@ const SingleRecipe = () => {
       >
         {/* Left Side - Recipe Display */}
         <div className=" relative bg-white shadow p-6 rounded-lg w-full text-center">
-          {favs.find((f) => f.id === selectedRecipe.id) ? (
+          {favs.find((f) => f.id === selectedRecipe?.id) ? (
             <i
               onClick={unfavHandler}
               className="absolute right-[5%] text-4xl text-red-500 ri-heart-fill"
@@ -99,18 +106,18 @@ const SingleRecipe = () => {
           )}
 
           <img
-            src={selectedRecipe.image}
-            alt={selectedRecipe.title}
+            src={selectedRecipe?.image}
+            alt={selectedRecipe?.title}
             className="w-1/2 m-auto  h-60 object-cover rounded"
           />
           <h2 className="text-3xl font-bold mt-2 text-gray-600 mb-7 decoration underline ">
-            {selectedRecipe.title}
+            {selectedRecipe?.title}
           </h2>
           <p className="text-md text-gray-600">
-            <strong>Chef:</strong> {selectedRecipe.chef}
+            <strong>Chef:</strong> {selectedRecipe?.chef}
           </p>
           <p className="text-md text-gray-600">
-            <strong>Category:</strong> {selectedRecipe.category}
+            <strong>Category:</strong> {selectedRecipe?.category}
           </p>
 
           <h4 className="mt-4 font-semibold text-xl text-gray-600">
@@ -118,7 +125,7 @@ const SingleRecipe = () => {
           </h4>
           <div className="flex justify-center">
             <ul className="list-disc list-inside pl-5 text-md space-y-1 text-left text-gray-600">
-              {selectedRecipe.ingredients.map((item, index) => (
+              {selectedRecipe?.ingredients.map((item, index) => (
                 <li key={index}>{item}</li>
               ))}
             </ul>
@@ -127,7 +134,7 @@ const SingleRecipe = () => {
           <h4 className="mt-4 font-semibold text-xl text-gray-600">
             Instructions:
           </h4>
-          <p className="text-md text-gray-600">{selectedRecipe.instructions}</p>
+          <p className="text-md text-gray-600">{selectedRecipe?.instructions}</p>
 
           <div className="w-full flex justify-center  gap-4 mt-6">
             <button
